@@ -1,0 +1,501 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>Pr&aacute;ctica 2</title><meta name="generator" content="MATLAB 9.2"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2019-09-13"><meta name="DC.source" content="Practica2.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><h1>Pr&aacute;ctica 2</h1><!--introduction--><!--/introduction--><h2>Contents</h2><div><ul><li><a href="#2">Objetivos</a></li><li><a href="#4">Introducci&oacute;n</a></li><li><a href="#10">Desarrollo</a></li><li><a href="#12">Problema1(solo codigo)</a></li><li><a href="#14">Problema2</a></li><li><a href="#16">Problema4</a></li><li><a href="#17">Ejercicio M1.1 de LATHI</a></li><li><a href="#18">Ejercicio M1.2 de LATHI</a></li><li><a href="#21">Ejercicio M1.3 de LATHI</a></li><li><a href="#23">Ejercicio M1.4 de LATHI</a></li><li><a href="#24">Problema5</a></li></ul></div><div><ul><li>Guerrero Aguilar Luis Abraham</li><li>Dur&aacute;n Espino Rodrigo Baltazar</li><li>L&oacute;pez Casas Leonel Isaac</li><li>Tuda Alonzo Roberto</li></ul></div><h2 id="2">Objetivos</h2><div><ul><li>Manipulaci&oacute;n B&aacute;sica de MATLAB</li><li>Gr&aacute;ficas de Se&ntilde;ales Reales y Complejas Continuas</li><li>Transformaci&oacute;n de Se&ntilde;ales Continuas(escalamientos y translaciones)</li><li>Calculo de energ&iacute;a y potencia de se&ntilde;ales continuas</li></ul></div><h2 id="4">Introducci&oacute;n</h2><p>En 1984 surge la primera versi&oacute;n, creado por Cleve Moler, con la idea de usar paquetes de subrutinas escritas en Fortran en los cursos de An&aacute;lisis Num&eacute;rico y Algebra Lineal, sin tener una necesidad de programas que usaran este lenguaje. El lenguaje de programaci&oacute;n M se cre&oacute; en 1970 proporcionando un acceso sencillo al Software de matrices LINPACK y EISPACK sin tener que hacer uso del lenguaje Fortran. Ya en 2004 se apreciaba que MATLAB era usado por aproximadamente m&aacute;s de un mill&oacute;n de personas, tanto acad&eacute;micos como empresarios.</p><p><b>Alternativas de software libre para usar c&oacute;digo MATLAB</b></p><div><ul><li><b>GNU Octave Online</b> : Octave o GNU Octave es un programa y lenguaje de programaci&oacute;n para realizar c&aacute;lculos num&eacute;ricos. Como su nombre indica, Octave es parte del proyecto GNU. <b>Es considerado el equivalente libre de MATLAB.</b> Entre varias caracter&iacute;sticas que comparten, se puede destacar que ambos ofrecen un int&eacute;rprete, permitiendo ejecutar &oacute;rdenes en modo interactivo</li><li><b>Scilab</b> : Es un software gratuito de c&oacute;digo abierto para programaci&oacute;n num&eacute;rica que proporciona un entorno para aplicaciones de ingenier&iacute;a y cient&iacute;ficas <b>muy similar a MATLAB.</b> Es un lenguaje de programaci&oacute;n matem&aacute;tica de alto nivel con acceso a cientos de funciones, estructuras de datos avanzadas y funciones gr&aacute;ficas en 2D y 3D.</li></ul></div><div><ul><li><b>Sagemath</b> : Es otro sistema de software de matem&aacute;ticas de c&oacute;digo abierto que podr&iacute;a ser una buena opci&oacute;n para aquellos que buscan una alternativa de MATLAB. Est&aacute; construido sobre una variedad de conocidas bibliotecas de computaci&oacute;n cient&iacute;fica basadas en Python, y su propio lenguaje es sint&aacute;cticamente similar a Python. Tiene muchas caracter&iacute;sticas que incluyen una interfaz de l&iacute;nea de comandos, cuadernos basados en navegador, herramientas para incrustar f&oacute;rmulas en otros documentos y, por supuesto, muchas bibliotecas matem&aacute;ticas.</li></ul></div><div><ul><li><b>Links</b></li></ul></div><div><ul><li><a href="www.scilab.org/products/scilab/download">www.scilab.org/products/scilab/download</a></li><li><a href="https://www.scilab.org">https://www.scilab.org</a></li><li><a href="https://octave-online.net">https://octave-online.net</a></li></ul></div><h2 id="10">Desarrollo</h2><p>Se resolveran cada uno de los siguientes problemas,los cuales se expondran con su respectiva secci&oacute;n.</p><div><ol><li>Crea una funci&oacute;n que se llame <i>fun1</i> y reciba dos parametros <img src="Practica2_eq08589834809570054062.png" alt="$\omega$"> y <img src="Practica2_eq05508344529756732484.png" alt="$a$"> la funci&oacute;n debe regresar la evaluaci&oacute;n <img src="Practica2_eq01407365636722940873.png" alt="$F(\omega)=a/(a^2+\omega^2)$">, esta funci&oacute;n debe trabajr con <img src="Practica2_eq16064389548595522758.png" alt="$a\in R$"> y <img src="Practica2_eq02576817051637404792.png" alt="$t\in  R^n$">. Debe mostrar su c&oacute;digo en el reporte (sin ejecutar).</li><li>Construya una funci&oacute;n que gr&aacute;fique funciones de <img src="Practica2_eq02145986785580767623.png" alt="$f:R\rightarrow R$"> en el formato de su elecci&oacute;n y pruebe su c&oacute;digo mostrando la gr&aacute;fica de <img src="Practica2_eq04634431881849194213.png" alt="$F(\omega)$"> vs <img src="Practica2_eq08589834809570054062.png" alt="$\omega$"> en el intervalo <img src="Practica2_eq01169792831847459841.png" alt="$[-2,2]$"> para <img src="Practica2_eq13016372792947090052.png" alt="$a=1$">.</li><li>Construya una funci&oacute;n que gr&aacute;fique funciones de <img src="Practica2_eq07287922491706758619.png" alt="$f:R\rightarrow R^2$"> en el formato de su elecci&oacute;n y pruebe su c&oacute;digo mostrando la gr&aacute;fica de la transformada de Fourier <img src="Practica2_eq14837990414550488255.png" alt="$F(w)$"> en <img src="Practica2_eq01315095555081819470.png" alt="$[-10,10]$"> de la funci&oacute;n <img src="Practica2_eq16179711886080607310.png" alt="$f(t)=e^{-2t}u(t)$">, puede utilizar una funci&oacute;n anonima para este fin. Reporte la gr&aacute;fica de <img src="Practica2_eq09478123530129115431.png" alt="$f(t)$"> de <img src="Practica2_eq05003862285080136837.png" alt="$[-1,5]$"> (recuerde que ya tiene una funci&oacute;n para esto). Reporte del espectro de magnitud y del espectro de fase en <img src="Practica2_eq01315095555081819470.png" alt="$[-10,10]$"> (puedes con sultar con help la descripci&oacute;n de <i>abs</i>, <i>angle</i>, <i>atan2</i>). Solo reporte las graficas.</li><li>Realiza las mismas operaciones que Lathi en las secciones M1.1 a M1.4  que se encuentra al final del cap&iacute;tulo 1 y antes de la secci&oacute;n de  problemas, cambie los <i>inline</i> por funciones anonimas</li><li>Resuelve el problema 1.2.2 usando las herramientas del paso anterior.</li><li>Escriba una funci&oacute;n que se llame <i>energia</i> que reciba como argumento una funci&oacute;n (anonima o simbolica) y que regrese el calculo de la energ&iacute;a, para esto puede resultar &uacute;til investigar las instrucciones <i>int</i> , <i>integral</i> Se presupone utilizar el c&oacute;digo solo con funciones de energia. Muestre el c&oacute;digo sin ejecutar, y posteriormente resuelva el problema 1.1.3.</li><li>Escriba una funci&oacute;n que se llame <i>potencia</i> que reciba como argumento una funci&oacute;n (anonima o simbolica) y que regrese el calculo de la potencia para esto puede resultar &uacute;til investigar las instrucciones <i>int</i> , <i>integral</i> Se presupone utilizar el c&oacute;digo solo con funciones de potencia. Muestre el c&oacute;digo sin ejecutar, y posteriormente resuelva el problema 1.1.4.</li></ol></div><h2 id="12">Problema1(solo codigo)</h2><pre class="codeinput"><span class="comment">%function [r]=fun1(a,w)</span>
+<span class="comment">%r=a./(a.^2+w.^2)</span>
+<span class="comment">%end</span>
+</pre><h2 id="14">Problema2</h2><pre class="codeinput">y=fun1(1,-2:0.01:2);
+t=-2:0.01:2;
+plot(t,y)
+</pre><pre class="codeoutput error">Undefined function 'fun1' for input arguments of type 'double'.
+
+Error in Practica2 (line 95)
+y=fun1(1,-2:0.01:2);
+</pre><h2 id="16">Problema4</h2><h2 id="17">Ejercicio M1.1 de LATHI</h2><pre class="codeinput"><span class="comment">%Cambiando funci&oacute;n 'inline' a funciones anonimas nos queda:</span>
+<span class="comment">%f=@(t) (exp(-t).*cos(2*pi*t));</span>
+<span class="comment">%</span>
+<span class="comment">%Evaluando la funci&oacute;n con $t=0$:</span>
+<span class="comment">%</span>
+t=0;
+x=exp(-t).*cos(2*pi*t)
+<span class="comment">%</span>
+<span class="comment">%Evaluando la funci&oacute;n con un intervalo de t=-2:2:</span>
+<span class="comment">%</span>
+t=-2:2;
+y=exp(-t).*cos(2*pi*t)
+<span class="comment">%</span>
+<span class="comment">%Ahora vamos a evuar la funci&oacute;n con el mismo intervalo pero le diremos a la</span>
+<span class="comment">%funci&oacute;n que tome pasos de 0.01 para que se pueda mostrar de mejor forma</span>
+<span class="comment">%como se comporta la func&oacute;n. Entonces nos queda:</span>
+t=-2:0.01:2;
+z=exp(-t).*cos(2*pi*t);
+plot(t,z)
+<span class="comment">%</span>
+</pre><h2 id="18">Ejercicio M1.2 de LATHI</h2><pre class="codeinput"><span class="comment">%Para resolver este problema se realiza casi de la misma manera que el</span>
+<span class="comment">%anterior.</span>
+<span class="comment">%Para la primera parte del problema nos queda:</span>
+<span class="comment">%</span>
+u=@(t) t&gt;=0;
+t=-2:2;
+y=(t&gt;=0);
+plot(t,y)
+xlabel(<span class="string">'t'</span>);
+ylabel(<span class="string">'u(t)'</span>);
+</pre><pre class="codeinput"><span class="comment">%Para la segunda tomaremos mas valores entre el intervalo de -2 a 2 para</span>
+<span class="comment">%que se pueda reflejar mejor la funci&oacute;n:</span>
+t=-2:0.01:2;
+y=(t&gt;=0);
+plot(t,y)
+xlabel(<span class="string">'t'</span>);
+ylabel(<span class="string">'u(t)'</span>);
+axis ([-2 2 -0.1 1.1])
+</pre><pre class="codeinput"><span class="comment">%Para la tercera parte del ejercicio igual se modifica la funci&oacute;n inline</span>
+<span class="comment">%por la funci&oacute;n anonima y se realiza lo que se nos pide, el resultado es:</span>
+<span class="comment">%</span>
+u=@(t) (t&gt;=0 &amp; (t&lt;1));
+t=-1:0.01:2;
+y=(t&gt;=0 &amp; t&lt;1);
+plot(t,y)
+xlabel(<span class="string">'t'</span>);
+ylabel(<span class="string">'u(t)=u(t)-u(t-1)'</span>);
+axis([-1 2 -0.1 1.1]);
+</pre><h2 id="21">Ejercicio M1.3 de LATHI</h2><pre class="codeinput"><span class="comment">%Para este ejercicio se convierten diferentes funciones a las que el libro</span>
+<span class="comment">%muestra para tener una mejor visualizaci&oacute;n del codigo y modificar la</span>
+<span class="comment">%funci&oacute;n inline en la funci&oacute;n anonima.</span>
+<span class="comment">%</span>
+g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
+t=-2:0.01:2;
+y=2*(exp(-t).*cos(2*pi*t).*(t&gt;=0))+1;
+plot(t,y)
+xlabel(<span class="string">'t'</span>);
+ylabel(<span class="string">'g(2t+1)'</span>);
+grid;
+<span class="comment">%</span>
+<span class="comment">%Ahora g(t) la graficaremos con g(-t+1). Como observamos todos los</span>
+<span class="comment">%valores de t cambian de signo.</span>
+<span class="comment">%</span>
+g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
+t=-2:0.01:2;
+y=(exp(t).*cos(2*pi*-t).*(-t&gt;=0))+1;
+plot(t,y)
+xlabel(<span class="string">'t'</span>);
+ylabel(<span class="string">'g(-t+1)'</span>);
+grid;
+</pre><pre class="codeinput"><span class="comment">%Ahora sumaremos las dos funciones anteriores y el resultado es el</span>
+<span class="comment">%siguiente.</span>
+g=@(t) (exp(-t).*cos(2*pi*t).*(t&gt;=0));
+t=-2:0.001:2;
+y1=2*(exp(-t).*cos(2*pi*t).*(t&gt;=0))+1;
+y2=(exp(t).*cos(2*pi*-t).*(-t&gt;=0))+1;
+h=y1+y2;
+plot(t,h)
+xlabel(<span class="string">'t'</span>);
+ylabel(<span class="string">'h(t)'</span>);
+grid;
+</pre><h2 id="23">Ejercicio M1.4 de LATHI</h2><pre class="codeinput"><span class="comment">%La representaci&oacute;n del c&oacute;digo de este ejercicio es el siguiente.</span>
+f=@(t) (exp(-t).*((t&gt;=0 &amp; (t&lt;1))));
+t=0:0.01:1;
+x=exp(-t).*((t&gt;=0 &amp; (t&lt;1)));
+E_x=sum(x.*x.*0.01)
+</pre><h2 id="24">Problema5</h2><pre class="codeinput"><span class="comment">%Para este problema 1.2.2 de LATHI primero realizaremos el c&oacute;digo de la</span>
+<span class="comment">%se&ntilde;al original para depu&eacute;s irla modificando conforme lo va pidiendo el</span>
+<span class="comment">%problema.</span>
+<span class="comment">%</span>
+<span class="comment">%Grafica x(t) original.</span>
+<span class="comment">%</span>
+f=@(t) (-t.*(t&gt;=-4 &amp; t&lt;0));
+f1=@(t) (t.*(t&gt;=0 &amp; t&lt;2));
+t=-5:0.01:3;
+y=f(t)+f1(t);
+plot(t,y)
+title(<span class="string">'x(t)'</span>);
+xlabel(<span class="string">'t'</span>);
+axis([-5 3 -0.5 4.5]);
+</pre><pre class="codeinput"><span class="comment">%Para el inciso a) x(t) debe convertirse en x(t-4).</span>
+<span class="comment">%</span>
+f=@(t) (-t.*(t&gt;=-4 &amp; t&lt;0));
+f1=@(t) (t.*(t&gt;=0 &amp; t&lt;2));
+t=-5:0.01:7;
+y=f(t-4)+f1(t-4);
+plot(t,y)
+title(<span class="string">'x(t-4)'</span>);
+xlabel(<span class="string">'t'</span>);
+axis([-0.5 6.5 -0.5 4.5]);
+</pre><pre class="codeinput"><span class="comment">%Para el inciso b) x(t) debe convertirse en x(t/1.5).</span>
+<span class="comment">%</span>
+f=@(t) (-t.*(t&gt;=-4 &amp; t&lt;0));
+f1=@(t) (t.*(t&gt;=0 &amp; t&lt;2));
+t=-10:0.01:7;
+y=f(t/1.5)+f1(t/1.5);
+plot(t,y)
+title(<span class="string">'x(t/1.5)'</span>);
+xlabel(<span class="string">'t'</span>);
+axis([-8 5 -0.5 4.5]);
+</pre><pre class="codeinput"><span class="comment">%Para el inciso c) x(t) debe convertirse en x(-t).</span>
+<span class="comment">%</span>
+f=@(t) (-t.*(t&gt;=-4 &amp; t&lt;0));
+f1=@(t) (t.*(t&gt;=0 &amp; t&lt;2));
+t=-10:0.01:7;
+y=f(-1*t)+f1(-1*t);
+plot(t,y)
+title(<span class="string">'x(-t)'</span>);
+xlabel(<span class="string">'t'</span>);
+axis([-4 5 -0.5 4.5]);
+</pre><pre class="codeinput"><span class="comment">%Para el inciso d) x(t) debe convertirse en x(2t-4).</span>
+<span class="comment">%</span>
+f=@(t) (-t.*(t&gt;=-4 &amp; t&lt;0));
+f1=@(t) (t.*(t&gt;=0 &amp; t&lt;2));
+t=-10:0.01:7;
+y=f(2*t-4)+f1(2*t-4);
+plot(t,y)
+title(<span class="string">'x(2t-4)'</span>);
+xlabel(<span class="string">'t'</span>);
+axis([-4 5 -0.5 4.5]);
+</pre><pre class="codeinput"><span class="comment">%Para el inciso e) x(t) debe convertirse en x(2-t).</span>
+<span class="comment">%</span>
+f=@(t) (-t.*(t&gt;=-4 &amp; t&lt;0));
+f1=@(t) (t.*(t&gt;=0 &amp; t&lt;2));
+t=-10:0.01:7;
+y=f(2-t)+f1(2-t);
+plot(t,y)
+title(<span class="string">'x(2-t)'</span>);
+xlabel(<span class="string">'t'</span>);
+axis([-2 7 -0.5 6.5]);
+</pre><p class="footer"><br><a href="http://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2017a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+%% Práctica 2
+%%
+% 
+% * Guerrero Aguilar Luis Abraham
+% * Durán Espino Rodrigo Baltazar
+% * López Casas Leonel Isaac
+% * Tuda Alonzo Roberto
+
+%% Objetivos
+%%
+% 
+% * Manipulación Básica de MATLAB
+% * Gráficas de Señales Reales y Complejas Continuas
+% * Transformación de Señales Continuas(escalamientos y translaciones)
+% * Calculo de energía y potencia de señales continuas
+
+%% Introducción
+% En 1984 surge la primera versión, creado por Cleve Moler, con la idea de usar paquetes de subrutinas escritas en Fortran en los cursos de Análisis Numérico y Algebra Lineal, sin tener una necesidad de programas que usaran este lenguaje.
+% El lenguaje de programación M se creó en 1970 proporcionando un acceso sencillo al Software de matrices LINPACK y EISPACK sin tener que hacer uso del lenguaje Fortran.
+% Ya en 2004 se apreciaba que MATLAB era usado por aproximadamente más de
+% un millón de personas, tanto académicos como empresarios.
+
+%%
+% *Alternativas de software libre para usar código MATLAB*
+%%
+% 
+% * *GNU Octave Online*
+% : Octave o GNU Octave es un programa y lenguaje de programación para realizar cálculos numéricos. 
+% Como su nombre indica, Octave es parte del proyecto GNU. *Es considerado el equivalente libre de MATLAB.* 
+% Entre varias características que comparten, se puede destacar que ambos ofrecen un intérprete, permitiendo ejecutar órdenes en modo interactivo
+% * *Scilab*
+% : Es un software gratuito de código abierto para programación numérica que proporciona un entorno para aplicaciones de ingeniería y científicas *muy similar a MATLAB.* 
+% Es un lenguaje de programación matemática de alto nivel con acceso a cientos de funciones, estructuras de datos avanzadas y funciones gráficas en 2D y 3D.
+%%
+% 
+% * *Sagemath*
+% : Es otro sistema de software de matemáticas de código abierto que podría ser una buena opción para aquellos que buscan una alternativa de MATLAB. 
+% Está construido sobre una variedad de conocidas bibliotecas de computación científica basadas en Python, y su propio lenguaje es sintácticamente similar a Python. 
+% Tiene muchas características que incluyen una interfaz de línea de comandos, cuadernos basados en navegador, herramientas para incrustar fórmulas en otros documentos y, por supuesto, muchas bibliotecas matemáticas. 
+%%
+% 
+% * *Links* 
+%%
+% 
+% * <www.scilab.org/products/scilab/download>
+% * <https://www.scilab.org>
+% * <https://octave-online.net>
+
+
+
+
+
+%% Desarrollo
+% Se resolveran cada uno de los siguientes problemas,los cuales se expondran con su respectiva sección.
+%%
+% # Crea una función que se llame _fun1_ y reciba dos parametros $\omega$ y 
+% $a$ la función debe regresar la evaluación $F(\omega)=a/(a^2+\omega^2)$,
+% esta función debe trabajr con $a\in R$ y $t\in  R^n$. Debe
+% mostrar su código en el reporte (sin ejecutar).
+% # Construya una función que gráfique funciones de
+% $f:R\rightarrow R$ en el formato de su elección y pruebe
+% su código mostrando la gráfica de $F(\omega)$ vs $\omega$ en el intervalo
+% $[-2,2]$ para $a=1$.
+% # Construya una función que gráfique funciones de
+% $f:R\rightarrow R^2$ en el formato de su elección y pruebe
+% su código mostrando la gráfica de la transformada de Fourier $F(w)$ en
+% $[-10,10]$ de la función $f(t)=e^{-2t}u(t)$, puede utilizar una función
+% anonima para este fin. Reporte la gráfica de $f(t)$ de 
+% $[-1,5]$ (recuerde que ya tiene una función para esto). Reporte 
+% del espectro de magnitud y del espectro de fase en $[-10,10]$ (puedes con
+% sultar con help la descripción de _abs_, _angle_, _atan2_). Solo
+% reporte las graficas.
+% # Realiza las mismas operaciones que Lathi en las secciones M1.1 a M1.4
+%  que se encuentra al final del capítulo 1 y antes de la sección de
+%  problemas, cambie los _inline_ por funciones anonimas
+% # Resuelve el problema 1.2.2 usando las herramientas del paso anterior. 
+% # Escriba una función que se llame _energia_ que reciba como argumento
+% una función (anonima o simbolica) y que regrese el calculo de la energía,
+% para esto puede resultar útil investigar las instrucciones _int_ , _integral_
+% Se presupone utilizar el código solo con funciones de energia. Muestre
+% el código sin ejecutar, y posteriormente resuelva el problema 1.1.3.
+% # Escriba una función que se llame _potencia_ que reciba como argumento
+% una función (anonima o simbolica) y que regrese el calculo de la potencia
+% para esto puede resultar útil investigar las instrucciones _int_ , _integral_
+% Se presupone utilizar el código solo con funciones de potencia. Muestre
+% el código sin ejecutar, y posteriormente resuelva el problema 1.1.4.
+%% Problema1(solo codigo)
+%%
+%function [r]=fun1(a,w)
+%r=a./(a.^2+w.^2)
+%end
+%% Problema2
+%%
+%
+y=fun1(1,-2:0.01:2);
+t=-2:0.01:2;
+plot(t,y)
+%% Problema4
+%% Ejercicio M1.1 de LATHI
+%Cambiando función 'inline' a funciones anonimas nos queda:
+%f=@(t) (exp(-t).*cos(2*pi*t));
+%
+%Evaluando la función con $t=0$:
+%
+t=0;
+x=exp(-t).*cos(2*pi*t)
+%
+%Evaluando la función con un intervalo de t=-2:2:
+%
+t=-2:2;
+y=exp(-t).*cos(2*pi*t)
+%
+%Ahora vamos a evuar la función con el mismo intervalo pero le diremos a la
+%función que tome pasos de 0.01 para que se pueda mostrar de mejor forma
+%como se comporta la funcón. Entonces nos queda:
+t=-2:0.01:2;
+z=exp(-t).*cos(2*pi*t);
+plot(t,z)
+%
+%% Ejercicio M1.2 de LATHI
+%Para resolver este problema se realiza casi de la misma manera que el
+%anterior.
+%Para la primera parte del problema nos queda:
+%
+u=@(t) t>=0;
+t=-2:2;
+y=(t>=0);
+plot(t,y)
+xlabel('t');
+ylabel('u(t)');
+%%
+%Para la segunda tomaremos mas valores entre el intervalo de -2 a 2 para
+%que se pueda reflejar mejor la función:
+t=-2:0.01:2;
+y=(t>=0);
+plot(t,y)
+xlabel('t');
+ylabel('u(t)');
+axis ([-2 2 -0.1 1.1])
+%%
+%Para la tercera parte del ejercicio igual se modifica la función inline
+%por la función anonima y se realiza lo que se nos pide, el resultado es:
+%
+u=@(t) (t>=0 & (t<1));
+t=-1:0.01:2;
+y=(t>=0 & t<1);
+plot(t,y)
+xlabel('t');
+ylabel('u(t)=u(t)-u(t-1)');
+axis([-1 2 -0.1 1.1]);
+%% Ejercicio M1.3 de LATHI
+%Para este ejercicio se convierten diferentes funciones a las que el libro
+%muestra para tener una mejor visualización del codigo y modificar la
+%función inline en la función anonima.
+%
+g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
+t=-2:0.01:2;
+y=2*(exp(-t).*cos(2*pi*t).*(t>=0))+1;
+plot(t,y)
+xlabel('t');
+ylabel('g(2t+1)');
+grid;
+%
+%Ahora g(t) la graficaremos con g(-t+1). Como observamos todos los
+%valores de t cambian de signo.
+%
+g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
+t=-2:0.01:2;
+y=(exp(t).*cos(2*pi*-t).*(-t>=0))+1;
+plot(t,y)
+xlabel('t');
+ylabel('g(-t+1)');
+grid;
+%%
+%Ahora sumaremos las dos funciones anteriores y el resultado es el
+%siguiente.
+g=@(t) (exp(-t).*cos(2*pi*t).*(t>=0));
+t=-2:0.001:2;
+y1=2*(exp(-t).*cos(2*pi*t).*(t>=0))+1;
+y2=(exp(t).*cos(2*pi*-t).*(-t>=0))+1;
+h=y1+y2;
+plot(t,h)
+xlabel('t');
+ylabel('h(t)');
+grid;
+%% Ejercicio M1.4 de LATHI
+%La representación del código de este ejercicio es el siguiente.
+f=@(t) (exp(-t).*((t>=0 & (t<1))));
+t=0:0.01:1;
+x=exp(-t).*((t>=0 & (t<1)));
+E_x=sum(x.*x.*0.01)
+%% Problema5
+%%
+%Para este problema 1.2.2 de LATHI primero realizaremos el código de la
+%señal original para depués irla modificando conforme lo va pidiendo el
+%problema.
+%
+%Grafica x(t) original.
+%
+f=@(t) (-t.*(t>=-4 & t<0));
+f1=@(t) (t.*(t>=0 & t<2));
+t=-5:0.01:3;
+y=f(t)+f1(t);
+plot(t,y)
+title('x(t)');
+xlabel('t');
+axis([-5 3 -0.5 4.5]);
+%%
+%
+%Para el inciso a) x(t) debe convertirse en x(t-4).
+%
+f=@(t) (-t.*(t>=-4 & t<0));
+f1=@(t) (t.*(t>=0 & t<2));
+t=-5:0.01:7;
+y=f(t-4)+f1(t-4);
+plot(t,y)
+title('x(t-4)');
+xlabel('t');
+axis([-0.5 6.5 -0.5 4.5]);
+%%
+%
+%Para el inciso b) x(t) debe convertirse en x(t/1.5).
+%
+f=@(t) (-t.*(t>=-4 & t<0));
+f1=@(t) (t.*(t>=0 & t<2));
+t=-10:0.01:7;
+y=f(t/1.5)+f1(t/1.5);
+plot(t,y)
+title('x(t/1.5)');
+xlabel('t');
+axis([-8 5 -0.5 4.5]);
+%%
+%
+%Para el inciso c) x(t) debe convertirse en x(-t).
+%
+f=@(t) (-t.*(t>=-4 & t<0));
+f1=@(t) (t.*(t>=0 & t<2));
+t=-10:0.01:7;
+y=f(-1*t)+f1(-1*t);
+plot(t,y)
+title('x(-t)');
+xlabel('t');
+axis([-4 5 -0.5 4.5]);
+%%
+%
+%Para el inciso d) x(t) debe convertirse en x(2t-4).
+%
+f=@(t) (-t.*(t>=-4 & t<0));
+f1=@(t) (t.*(t>=0 & t<2));
+t=-10:0.01:7;
+y=f(2*t-4)+f1(2*t-4);
+plot(t,y)
+title('x(2t-4)');
+xlabel('t');
+axis([-4 5 -0.5 4.5]);
+%%
+%
+%Para el inciso e) x(t) debe convertirse en x(2-t).
+%
+f=@(t) (-t.*(t>=-4 & t<0));
+f1=@(t) (t.*(t>=0 & t<2));
+t=-10:0.01:7;
+y=f(2-t)+f1(2-t);
+plot(t,y)
+title('x(2-t)');
+xlabel('t');
+axis([-2 7 -0.5 6.5]);
+%%
+
+##### SOURCE END #####
+--></body></html>
